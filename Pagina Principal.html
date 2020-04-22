@@ -1,26 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Pagina Principal</title>
+    <link rel="stylesheet" href="estilo1.css" type="text/css">
 </head>
 <body>
 <header>
-    <h1>El Dinosaurio Cordobes</h1>
+    <div class="Titulo">
+        <h1>El Dinosaurio Cordobes</h1>
+    </div>
 </header>
 <form>
-    <p>
-        <label for="nombre">Ingrese su nombre</label>
-    </p>
-    <p>
-        <input type="text" id="nombre" placeholder="Ingrese su nombre">
-    </p>
-    <p>
-        <b>Elija su Dinosaurio</b>
-    </p>
-    <p>
-        <img src="imagenes/">
-    </p>
+    <div class="formulario">
+        <p>
+            <label for="nombre"><h2>Ingrese su nombre: </h2></label>
+        </p>
+        <p>
+            <input type="text" id="nombre" placeholder="Ingrese su nombre">
+        </p>
+        <p>
+        <h2>
+            <b>Elija su Dinosaurio</b>
+        </h2>
+        </p>
+        <p>
+
+            <img src="imagenes/tyrannosaurus-dino-t-rex-t-rex-chrome-vr-jump-trex-runner-lava-jump-dinosaur.jpg">
+
+            <img src="imagenes/tyrannosaurus-dino-t-rex-t-rex-chrome-vr-jump-trex-runner-lava-jump-dinosaur.jpg">
+
+            <img src="imagenes/tyrannosaurus-dino-t-rex-t-rex-chrome-vr-jump-trex-runner-lava-jump-dinosaur.jpg">
+        </p>
+        <p>
+            <input type="radio" name="dino" value="dino_negro" id="dino_negro">
+            <input type="radio" name="dino" value="dino_2" id="dino_2">
+            <input type="radio" name="dino" value="dino_3" id="dino_3">
+        </p>
+    </div>
+    <button type="button">Click para Comenzar!</button>
 </form>
 </body>
 </html>

@@ -1,0 +1,38 @@
+body {
+    background: linear-gradient(to left, #0490d4, #cccfd2);
+}
+div.Titulo{
+    border: 5px solid #f1f0ed;
+    margin: 10px 20%;
+    padding: 5px 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+div.formulario{
+    border: 5px solid #f1f0ed;
+    margin: 10px;
+    padding: 5px 30px;
+    border-radius: 15px;
+    text-align: center;
+    background: black;
+    color: white;
+}
+
+img {
+    width: 15%;
+}
+button {
+    border: 2px solid white;
+    margin: 10px;
+    padding: 30px 30px;
+    border-radius: 15px;
+    text-align: center;
+    background: black;
+    color: white;
+}
+button:hover{
+    font-size: 100%;
+}
+button:active{
+    font-weight: bold;
+}
