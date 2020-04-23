@@ -1,23 +1,21 @@
 body {
     background: linear-gradient(to left, #0490d4, #cccfd2);
 }
-div.Titulo{
+div {
     border: 5px solid #f1f0ed;
-    margin: 10px 20%;
-    padding: 5px 30px;
     border-radius: 15px;
     text-align: center;
 }
+div.Titulo{
+    margin: 10px 20%;
+    padding: 5px 30px;
+}
 div.formulario{
-    border: 5px solid #f1f0ed;
     margin: 10px;
     padding: 5px 30px;
-    border-radius: 15px;
-    text-align: center;
     background: black;
     color: white;
 }
-
 img {
     width: 15%;
 }
@@ -35,4 +33,11 @@ button:hover{
 }
 button:active{
     font-weight: bold;
+}
+canvas {
+    background: black;
+}
+#juego {
+    width: 1200px;
+    height: 600px;
 }
