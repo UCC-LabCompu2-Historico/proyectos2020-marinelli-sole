@@ -1,11 +1,13 @@
 body {
-    background: linear-gradient(to left, #0490d4, #cccfd2);
+    background-image: url("imagenes/fondo_dino.jpg");
+
 }
 div.info {
     border: 5px solid #f1f0ed;
     border-radius: 15px;
     text-align: center;
 }
+
 #titulo{
     margin: 20px 20%;
     padding: 5px 30px;
@@ -43,6 +45,9 @@ button:active{
 canvas {
     background: black;
 }
+div.posision{
+    position: relative;
+}
 #juego {
     width: 70%;
     height: 70%;
@@ -50,13 +55,21 @@ canvas {
 #puntuacion {
     position: absolute;
     top: 5%;
-    right: 15%;
-    width: 10%;
-    height: 10%;
+    right: 15px;
+    width: 26%;
+    height: 20%;
 
 }
-#mejores_puntuaciones {
+#posicion_mej_puntuacion {
+    position: absolute;
+    height: 40%;
+    width: 40%;
+
 }
-#nivel_progreso{
-    position: fixed;
+#posicion_progreso{
+    position: absolute;
+    top 0px;
+    left: 50%;
+    height: 50%;
+    width: 50%;
 }
