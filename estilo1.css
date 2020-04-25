@@ -52,6 +52,9 @@ div.posision{
     width: 70%;
     height: 70%;
 }
+#mejores_puntuaciones, #puntuacion, #nivel_progreso{
+    background: #3b5736;
+}
 #puntuacion {
     position: absolute;
     top: 5%;
@@ -64,11 +67,10 @@ div.posision{
     position: absolute;
     height: 40%;
     width: 40%;
-
 }
 #posicion_progreso{
     position: absolute;
-    top 0px;
+    top: 0px;
     left: 50%;
     height: 50%;
     width: 50%;
