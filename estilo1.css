@@ -1,18 +1,18 @@
 body {
     background: linear-gradient(to left, #0490d4, #cccfd2);
 }
-div {
+div.info {
     border: 5px solid #f1f0ed;
     border-radius: 15px;
     text-align: center;
 }
-div.Titulo{
-    margin: 10px 20%;
+#titulo{
+    margin: 20px 20%;
     padding: 5px 30px;
 }
-div.formulario{
-    margin: 10px;
-    padding: 5px 30px;
+#formulario{
+    margin: 50px 15%;
+    padding: 50px 30px;
     background: black;
     color: white;
 }
@@ -22,11 +22,14 @@ img {
 button {
     border: 2px solid white;
     margin: 10px;
-    padding: 30px 30px;
+    padding: 50px 80px;
     border-radius: 15px;
     text-align: center;
     background: black;
     color: white;
+    position: relative;
+    left: 40%;
+
 }
 button:hover{
     font-size: 100%;
@@ -34,10 +37,26 @@ button:hover{
 button:active{
     font-weight: bold;
 }
+
+/* Pantalla del Juego
+ */
 canvas {
     background: black;
 }
 #juego {
-    width: 1200px;
-    height: 600px;
+    width: 70%;
+    height: 70%;
+}
+#puntuacion {
+    position: absolute;
+    top: 5%;
+    right: 15%;
+    width: 10%;
+    height: 10%;
+
+}
+#mejores_puntuaciones {
+}
+#nivel_progreso{
+    position: fixed;
 }
