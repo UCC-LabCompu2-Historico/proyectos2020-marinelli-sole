@@ -1,10 +1,29 @@
-# proyectos2020-marinelli-sole
-El titulo del proyecto es: "El dinosaurio cordobes"
-Autores: Sole Leonel y Marinelli Ignacio
-https://github.com/UCC-LabCompu2/proyectos2020-marinelli-sole
-La p·gina consiste en un juego interactivo en el cual se controla un dinosaurio que debe esquivar obstaculos durante su carrera.
-El juego no tiene fin sino que el ganador es quien obtenga un puntaje mas alto.
-Las aplicaciones que utilizamos para el desarrollo de la pagina son:
-Pencil
-Webstorm
-GitHub
+# El Dinosaurio Cordobes
+
+Este es un juego inspirado en el famoso juego "Chrome Dino Run", creado por los estudiantes:
+
+  - Nacho Marinelli
+  - Leonel Sole 
+
+# Descripcion
+La p√°gina consiste en un juego interactivo en el cual se controla un dinosaurio que debe esquivar obstaculos durante su carrera. Para ganar debaras ir pasando niveles en los cuales se aumenta la dificultad.
+
+## Controles
+| Tecla | Accion |
+| ------ | ------ |
+| Espacio | Saltar |
+| Flecha Arrba | Saltar |
+
+
+### Herramientas utilizadas
+
+Esta pagina web utilizo las siguientes herramientas de desarrolo para su creacion:
+
+* [WebStorm](https://www.jetbrains.com/es-es/webstorm/) - Como IDE principal
+* [Pencil Project](https://pencil.evolus.vn/) - Para el dibujo del Wireframe
+* [GitHub](https://github.com/) - Sistema de control de versiones
+
+### Tecnologias usadas
+
+- HTML
+- CSS
