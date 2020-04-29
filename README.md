@@ -4,7 +4,8 @@ Este es un juego inspirado en el famoso juego "Chrome Dino Run", creado por los 
 
   - Nacho Marinelli
   - Leonel Sole 
-
+##### Link
+https://ucc-labcompu2.github.io/proyectos2020-marinelli-sole/
 # Descripcion
 La página consiste en un juego interactivo en el cual se controla un dinosaurio que debe esquivar obstaculos durante su carrera. Para ganar debaras ir pasando niveles en los cuales se aumenta la dificultad.
 
