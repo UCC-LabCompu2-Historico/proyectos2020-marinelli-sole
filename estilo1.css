@@ -50,10 +50,7 @@ canvas {
 div.posision{
     position: relative;
 }
-#juego {
-    width: 70%;
-    height: 70%;
-}
+
 #mejores_puntuaciones, #puntuacion, #nivel_progreso{
     background: #3b5736;
 }
