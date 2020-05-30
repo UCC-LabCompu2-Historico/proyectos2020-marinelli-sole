@@ -44,8 +44,10 @@ button:active{
 /* Pantalla del Juego
  */
 canvas {
-    background: black;
+    background: #979592;
     margin: 10px;
+    border-radius: 15px;
+    border: 2px solid white;
 }
 div.posision{
     position: relative;
