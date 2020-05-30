@@ -49,6 +49,9 @@ canvas {
     border-radius: 15px;
     border: 2px solid white;
 }
+#canvas_progreso{
+    background: linear-gradient(to right,white,yellow);
+}
 div.posision{
     position: relative;
 }

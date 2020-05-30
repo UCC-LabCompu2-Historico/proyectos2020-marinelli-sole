@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Pagina Principal</title>
     <link rel="stylesheet" href="estilo1.css" type="text/css">
+    <script type="text/javascript" src="Funciones.js"></script>
 </head>
-<body>
-<canvas id="juego" width="1300px" height="702px"></canvas>
+<body onload="dibujarMapaProgreso()">
+<canvas id="juego" width="1300px" height="700px"></canvas>
 <div class="info" id="puntuacion">
     <p><h2>Puntuacion:</h2></p>
     <ul>
@@ -30,7 +31,7 @@
         <div id="posicion_progreso">
             <div class="info" id="nivel_progreso">
                 <p><h2>Nivel de Progreso</h2></p>
-                <p><canvas height="200px" width="600px"></canvas></p>
+                <p><canvas height="200px" width="600px" id="canvas_progreso"></canvas></p>
             </div>
         </div>
     </div>
