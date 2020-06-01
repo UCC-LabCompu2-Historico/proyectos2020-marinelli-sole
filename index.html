@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina Principal</title>
+    <link rel="stylesheet" href="estilo1.css" type="text/css">
+    <script type="text/javascript" src="Funciones.js"></script>
+</head>
+<body>
+<header>
+    <div class="info" id="titulo">
+        <h1>El Dinosaurio Cordobes</h1>
+    </div>
+</header>
+    <div class="info" id="formulario">
+        <p>
+            <label for="nombre"><h2>Ingrese su nombre: </h2></label>
+        </p>
+        <p>
+            <input type="text" id="nombre" placeholder="Ingrese su nombre">
+        </p>
+        <p>
+        <h2>
+            <b>Elija su Dinosaurio</b>
+        </h2>
+        </p>
+        <p>
+            <input type="radio" name="dino" value="dino_negro" id="dino_amarillo"><img src="imagenes/dinoAmarillo.png">
+            <input type="radio" name="dino" value="dino_verde" id="dino_rosa"><img src="imagenes/dinoRosa.png">
+            <input type="radio" name="dino" value="dino_violeta" id="dino_verde"><img src="imagenes/dinoverde.png">
+        </p>
+    </div>
+    <a href="PantallaJuego.html"><button type="button" onclick="pasarFormulario()"><h2>Click para Comenzar!</h2></button></a>
+    </form>
+</body>
+</html>
