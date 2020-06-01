@@ -46,5 +46,42 @@ function dibujarMapaProgreso(){
 }
 
 function pasarFormulario(){
+    var nombre,dino,urlComp;
+    nombre = document.getElementById("nombre").value;
+    dino = document.getElementsByName("dino")[obtenerRadioButton()].value;
+    urlComp = "PantallaJuego.html#" + nombre + "#" + dino;
+    window.open(urlComp);
+}
 
+function obtenerRadioButton()
+{
+    var dino = document.getElementsByName("dino");
+    for(i=0;i<3;i++)
+        if(dino[i].checked) return i;
+}
+
+function obtenerFormulario() {
+    var urlComp, nombre, dino;
+
+    urlComp = window.location.href.split('/')[4];
+    nombre= window.location.href.split('#')[1];
+    dino= window.location.href.split('#')[2];
+
+    document.getElementById("nombre_jugador").innerHTML = nombre;
+}
+
+function obtenerNombre() {
+    var urlComp, nombre;
+
+    urlComp = window.location.href.split('/')[4];
+    nombre= window.location.href.split('#')[1];
+    return nombre;
+}
+
+function obtenerDino() {
+    var urlComp, dino;
+
+    urlComp = window.location.href.split('/')[4];
+    dino= window.location.href.split('#')[2];
+    return ndino;
 }
