@@ -13,10 +13,17 @@ function dibujarMapaProgreso(){
     numero3.src = "imagenes/numbre-3.png";
     var trofeo = new Image();
     trofeo.src = "imagenes/trophy.png";
+    var dino = new Image();
+    if(obtenerDino()=="dino_rosa") dino.src = "imagenes/dinoRosa.png";
+    if(obtenerDino()=="dino_amarillo") dino.src = "imagenes/dinoAmarillo.png"
+    if(obtenerDino()=="dino_verde") dino.src = "imagenes/dinoVerde.png"
 
     ctx.beginPath();
     numero1.onload = function(){
         ctx.drawImage(numero1,30,30,50,50);
+    }
+    dino.onload = function(){
+        ctx.drawImage(dino,30,65,70,70);
     }
     numero2.onload = function(){
         ctx.drawImage(numero2,200,120,50,50);
@@ -83,5 +90,14 @@ function obtenerDino() {
 
     urlComp = window.location.href.split('/')[4];
     dino= window.location.href.split('#')[2];
-    return ndino;
+    return dino;
+}
+var x=0,y=0;
+function animarInicio() {
+    var canvas = document.getElementById("juego");
+    var ctx = canvas.getContext("2d");
+    canvas.width=canvas.width;
+    ctx.fillStyle = "White";
+    ctx.font = "bold 50px sans-serif";
+    ctx.fillText("El Dinosaurio Cordobes",300,350);
 }
