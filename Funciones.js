@@ -98,6 +98,7 @@ function animarInicio() {
     var ctx = canvas.getContext("2d");
     canvas.width=canvas.width;
     setInterval(moverTitulo,30);
+    setInterval(moverFernet,1);
 }
 x=0;
 y=0;
@@ -114,17 +115,25 @@ function moverTitulo() {
     if(x>1300) x=0;
     if(y>700) y=0;
 }
-x1=1300;
+x1=1600;
+x2=2000;
+x3=2500;
 function moverFernet() {
     var canvas = document.getElementById("juego");
     var ctx = canvas.getContext("2d");
-    canvas.width=canvas.width;
+    
     var img = new Image();
     img.src = "imagenes/fernet.png";
-
     img.onload = function(){
-        ctx.drawImage(img,x1,600);
+        ctx.drawImage(img,x1,550, 60,80);
+        ctx.drawImage(img,x2,550, 60,80);
+        ctx.drawImage(img,x3,550, 60,80);
     }
-    x-=dx;
-    if(x1<0) x=1300;
+    x1-=dx;
+    x2-=dx;
+    x3-=dx;
+    if(x1<0) x1=1600;
+    if(x2<0) x2=2000;
+    if(x3<0) x3=2500;
 }
+
