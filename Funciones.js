@@ -92,12 +92,39 @@ function obtenerDino() {
     dino= window.location.href.split('#')[2];
     return dino;
 }
-var x=0,y=0;
+
 function animarInicio() {
     var canvas = document.getElementById("juego");
     var ctx = canvas.getContext("2d");
     canvas.width=canvas.width;
-    ctx.fillStyle = "White";
+    setInterval(moverTitulo,30);
+}
+x=0;
+y=0;
+dx=1;
+function moverTitulo() {
+    var canvas = document.getElementById("juego");
+    var ctx = canvas.getContext("2d");
+    canvas.width=canvas.width;
+    ctx.fillStyle = "black";
     ctx.font = "bold 50px sans-serif";
-    ctx.fillText("El Dinosaurio Cordobes",300,350);
+    ctx.fillText("El Dinosaurio Cordobes",x,y);
+    x+=dx;
+    y+=dx;
+    if(x>1300) x=0;
+    if(y>700) y=0;
+}
+x1=1300;
+function moverFernet() {
+    var canvas = document.getElementById("juego");
+    var ctx = canvas.getContext("2d");
+    canvas.width=canvas.width;
+    var img = new Image();
+    img.src = "imagenes/fernet.png";
+
+    img.onload = function(){
+        ctx.drawImage(img,x1,600);
+    }
+    x-=dx;
+    if(x1<0) x=1300;
 }
