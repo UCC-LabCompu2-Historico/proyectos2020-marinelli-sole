@@ -68,7 +68,7 @@ function pasarFormulario(){
 }
 
 /**
- * A partir de esta funcion se logra saber que dinosaurio fue seleccionado para jugar.
+ * A partir de esta funcion se logra saber que radio button fue seleccionado.
  * @method obtenerRadioButton
  * @return {number} - Devuelve la posicion del arreglo de radio buttons que fue seleccionado
  */
