@@ -49,6 +49,10 @@ canvas {
     border-radius: 15px;
     border: 2px solid white;
 }
+#juego{
+    background: white;
+    border: 2px solid black;
+}
 #canvas_progreso{
     background: linear-gradient(to right,white,yellow);
 }
