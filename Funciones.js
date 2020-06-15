@@ -1,4 +1,7 @@
-
+/**
+ * La funcion realiza un canvas en el que se grafica el progreso que se tiene durante el juego.
+ * @method dibujarMapaProgreso
+ */
 function dibujarMapaProgreso(){
     var canvas = document.getElementById("canvas_progreso");
     var ctx = canvas.getContext("2d");
@@ -52,6 +55,10 @@ function dibujarMapaProgreso(){
     ctx.closePath();
 }
 
+/**
+ * Se envia el formulario obtenido para utilizar la informacion (nombre del jugador, dinosaurio seleccionado y ).
+ * @method pasarFormulario
+ */
 function pasarFormulario(){
     var nombre,dino,urlComp;
     nombre = document.getElementById("nombre").value;
@@ -60,6 +67,10 @@ function pasarFormulario(){
     window.open(urlComp);
 }
 
+/**
+ * A partir de esta funcion se logra saber que dinosaurio fue seleccionado para jugar.
+ * @method obtenerRadioButton
+ */
 function obtenerRadioButton()
 {
     var dino = document.getElementsByName("dino");
@@ -67,6 +78,10 @@ function obtenerRadioButton()
         if(dino[i].checked) return i;
 }
 
+/**
+ * Esta funcion sirve para
+ * @method obtenerFormulario
+ */
 function obtenerFormulario() {
     var urlComp, nombre, dino;
 
@@ -77,6 +92,11 @@ function obtenerFormulario() {
     document.getElementById("nombre_jugador").innerHTML = nombre;
 }
 
+/**
+ * Se obtiene el nombre del jugador.
+ * @method obtenerNombre
+ * @return nombre devuelve el nombre del jugador
+ */
 function obtenerNombre() {
     var urlComp, nombre;
 
@@ -85,6 +105,11 @@ function obtenerNombre() {
     return nombre;
 }
 
+/**
+ * Se obtiene la imagen del dinosaurio seleccionado.
+ * @method obtenerDino
+ * @return dino se retorna el dinosaurio que fue seleccionado
+ */
 function obtenerDino() {
     var urlComp, dino;
 
@@ -93,6 +118,10 @@ function obtenerDino() {
     return dino;
 }
 
+/**
+ * Esta funcion realiza la animacion de la pagina del video juego.
+ * @method animarInicio
+ */
 function animarInicio() {
     var canvas = document.getElementById("juego");
     var ctx = canvas.getContext("2d");
@@ -100,9 +129,15 @@ function animarInicio() {
     setInterval(moverTitulo,30);
     setInterval(moverFernet,1);
 }
+
 x=0;
 y=0;
 dx=1;
+
+/**
+ * Esta funcion realiza la animacion del titulo.
+ * @method moverTitulo
+ */
 function moverTitulo() {
     var canvas = document.getElementById("juego");
     var ctx = canvas.getContext("2d");
@@ -115,9 +150,15 @@ function moverTitulo() {
     if(x>1300) x=0;
     if(y>700) y=0;
 }
+
 x1=1600;
 x2=2000;
 x3=2500;
+
+/**
+ * Esta funcion realiza la animacion del fernet.
+ * @method moverFernet
+ */
 function moverFernet() {
     var canvas = document.getElementById("juego");
     var ctx = canvas.getContext("2d");
