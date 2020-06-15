@@ -70,6 +70,7 @@ function pasarFormulario(){
 /**
  * A partir de esta funcion se logra saber que dinosaurio fue seleccionado para jugar.
  * @method obtenerRadioButton
+ * @return {number} - Devuelve la posicion del arreglo de radio buttons que fue seleccionado
  */
 function obtenerRadioButton()
 {
@@ -79,7 +80,7 @@ function obtenerRadioButton()
 }
 
 /**
- * Esta funcion sirve para
+ * Esta funcion sirve para obtener la informacion pasada a travez de la url
  * @method obtenerFormulario
  */
 function obtenerFormulario() {
@@ -95,7 +96,7 @@ function obtenerFormulario() {
 /**
  * Se obtiene el nombre del jugador.
  * @method obtenerNombre
- * @return nombre devuelve el nombre del jugador
+ * @return {string} nombre - devuelve el nombre del jugador
  */
 function obtenerNombre() {
     var urlComp, nombre;
@@ -108,7 +109,7 @@ function obtenerNombre() {
 /**
  * Se obtiene la imagen del dinosaurio seleccionado.
  * @method obtenerDino
- * @return dino se retorna el dinosaurio que fue seleccionado
+ * @return {string} dino - se retorna el dinosaurio que fue seleccionado
  */
 function obtenerDino() {
     var urlComp, dino;
