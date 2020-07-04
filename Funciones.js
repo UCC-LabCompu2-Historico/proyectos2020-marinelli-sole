@@ -203,8 +203,8 @@ class Player {
 
     Draw () {
         ctx.beginPath();
-        ctx.fillStyle = this.c;
-        ctx.fillRect(this.x, this.y, this.w, this.h);
+        /*ctx.fillStyle = this.c;
+        ctx.fillRect(this.x, this.y, this.w, this.h);*/
         ctx.drawImage(dino,this.x-20,this.y,this.w+50,this.h);
         ctx.closePath();
     }
@@ -229,9 +229,9 @@ class Obstacle {
 
     Draw () {
         ctx.beginPath();
-        ctx.fillStyle = this.c;
-        ctx.fillRect(this.x, this.y, this.w, this.h);
-        ctx.drawImage(fernet,this.x,this.y,this.w,this.h);
+        /*ctx.fillStyle = this.c;
+        ctx.fillRect(this.x, this.y, this.w, this.h);*/
+        ctx.drawImage(fernet,this.x-18,this.y,this.w+30,this.h);
         ctx.closePath();
     }
 }
@@ -260,7 +260,7 @@ class Text {
 function SpawnObstacle () {
     let size = RandomIntInRange(70, 100);
     let type = RandomIntInRange(0, 1);
-    let obstacle = new Obstacle(canvas.width + size, canvas.height - size, size-30, size, 'white');
+    let obstacle = new Obstacle(canvas.width + size, canvas.height - size, size-50, size, 'white');
 
     if (type == 1) {
         obstacle.y -= player.originalHeight - 10;
@@ -355,3 +355,12 @@ function Update () {
 
 Start();
 
+var aux1=score;
+function ObtenerPuntuaciones() {
+    document.getElementById("puntuos").innerHTML = score;
+    document.getElementById("puesto1").innerHTML = highscore;
+}
+
+function ActualizarPuntos() {
+    setInterval(ObtenerPuntuaciones,100)
+}
