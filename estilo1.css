@@ -50,7 +50,8 @@ canvas {
     border: 2px solid white;
 }
 #juego{
-    background: white;
+    background-image: url("imagenes/bandera_argentina.svg");
+    /*background: white;*/
     border: 2px solid black;
 }
 #canvas_progreso{
