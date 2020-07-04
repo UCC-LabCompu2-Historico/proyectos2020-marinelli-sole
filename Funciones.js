@@ -119,63 +119,239 @@ function obtenerDino() {
     return dino;
 }
 
-/**
- * Esta funcion realiza la animacion de la pagina del video juego.
- * @method animarInicio
- */
-function animarInicio() {
-    var canvas = document.getElementById("juego");
-    var ctx = canvas.getContext("2d");
-    canvas.width=canvas.width;
-    setInterval(moverTitulo,30);
-    setInterval(moverFernet,1);
-}
+const canvas = document.getElementById("juego");
+const ctx = canvas.getContext("2d");
 
-x=0;
-y=0;
-dx=1;
+// Variables
+let score;
+let scoreText;
+let highscore;
+let highscoreText;
+let player;
+let gravity;
+let obstacles = [];
+let gameSpeed;
+let keys = {};
+var dino = new Image();
+if(obtenerDino()=="dino_rosa") dino.src = "imagenes/dinoRosa.png";
+if(obtenerDino()=="dino_amarillo") dino.src = "imagenes/dinoAmarillo.png"
+if(obtenerDino()=="dino_verde") dino.src = "imagenes/dinoVerde.png"
+const fernet = new Image();
+fernet.src = "imagenes/fernet.png";
 
-/**
- * Esta funcion realiza la animacion del titulo.
- * @method moverTitulo
- */
-function moverTitulo() {
-    var canvas = document.getElementById("juego");
-    var ctx = canvas.getContext("2d");
-    canvas.width=canvas.width;
-    ctx.fillStyle = "black";
-    ctx.font = "bold 50px sans-serif";
-    ctx.fillText("El Dinosaurio Cordobes",x,y);
-    x+=dx;
-    y+=dx;
-    if(x>1300) x=0;
-    if(y>700) y=0;
-}
+// Event Listeners
+document.addEventListener('keydown', function (evt) {
+    keys[evt.code] = true;
+});
+document.addEventListener('keyup', function (evt) {
+    keys[evt.code] = false;
+});
 
-x1=1600;
-x2=2000;
-x3=2500;
+class Player {
+    constructor (x, y, w, h, c) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.c = c;
 
-/**
- * Esta funcion realiza la animacion del fernet.
- * @method moverFernet
- */
-function moverFernet() {
-    var canvas = document.getElementById("juego");
-    var ctx = canvas.getContext("2d");
-    
-    var img = new Image();
-    img.src = "imagenes/fernet.png";
-    img.onload = function(){
-        ctx.drawImage(img,x1,550, 60,80);
-        ctx.drawImage(img,x2,550, 60,80);
-        ctx.drawImage(img,x3,550, 60,80);
+        this.dy = 0;
+        this.jumpForce = 15;
+        this.originalHeight = h;
+        this.grounded = false;
+        this.jumpTimer = 0;
     }
-    x1-=dx;
-    x2-=dx;
-    x3-=dx;
-    if(x1<0) x1=1600;
-    if(x2<0) x2=2000;
-    if(x3<0) x3=2500;
+
+    Animate () {
+        // Jump
+        if (keys['Space'] || keys['KeyW']) {
+            this.Jump();
+        } else {
+            this.jumpTimer = 0;
+        }
+
+        if (keys['ShiftLeft'] || keys['KeyS']) {
+            this.h = this.originalHeight / 2;
+        } else {
+            this.h = this.originalHeight;
+        }
+
+        this.y += this.dy;
+
+        // Gravity
+        if (this.y + this.h < canvas.height) {
+            this.dy += gravity;
+            this.grounded = false;
+        } else {
+            this.dy = 0;
+            this.grounded = true;
+            this.y = canvas.height - this.h;
+        }
+
+        this.Draw();
+    }
+
+    Jump () {
+        if (this.grounded && this.jumpTimer == 0) {
+            this.jumpTimer = 1;
+            this.dy = -this.jumpForce;
+        } else if (this.jumpTimer > 0 && this.jumpTimer < 15) {
+            this.jumpTimer++;
+            this.dy = -this.jumpForce - (this.jumpTimer / 50);
+        }
+    }
+
+    Draw () {
+        ctx.beginPath();
+        ctx.fillStyle = this.c;
+        ctx.fillRect(this.x, this.y, this.w, this.h);
+        ctx.drawImage(dino,this.x-20,this.y,this.w+50,this.h);
+        ctx.closePath();
+    }
 }
+
+class Obstacle {
+    constructor (x, y, w, h, c) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.c = c;
+
+        this.dx = -gameSpeed;
+    }
+
+    Update () {
+        this.x += this.dx;
+        this.Draw();
+        this.dx = -gameSpeed;
+    }
+
+    Draw () {
+        ctx.beginPath();
+        ctx.fillStyle = this.c;
+        ctx.fillRect(this.x, this.y, this.w, this.h);
+        ctx.drawImage(fernet,this.x,this.y,this.w,this.h);
+        ctx.closePath();
+    }
+}
+
+class Text {
+    constructor (t, x, y, a, c, s) {
+        this.t = t;
+        this.x = x;
+        this.y = y;
+        this.a = a;
+        this.c = c;
+        this.s = s;
+    }
+
+    Draw () {
+        ctx.beginPath();
+        ctx.fillStyle = this.c;
+        ctx.font = this.s + "px sans-serif";
+        ctx.textAlign = this.a;
+        ctx.fillText(this.t, this.x, this.y);
+        ctx.closePath();
+    }
+}
+
+// Game Functions
+function SpawnObstacle () {
+    let size = RandomIntInRange(70, 100);
+    let type = RandomIntInRange(0, 1);
+    let obstacle = new Obstacle(canvas.width + size, canvas.height - size, size-30, size, 'white');
+
+    if (type == 1) {
+        obstacle.y -= player.originalHeight - 10;
+    }
+    obstacles.push(obstacle);
+}
+
+
+function RandomIntInRange (min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+function Start () {
+    canvas.width = canvas.width;
+    canvas.height = canvas.height;
+
+    ctx.font = "20px sans-serif";
+
+    gameSpeed = 3;
+    gravity = 1;
+
+    score = 0;
+    highscore = 0;
+    if (localStorage.getItem('highscore')) {
+        highscore = localStorage.getItem('highscore');
+    }
+
+    player = new Player(25, 0, 50, 150, 'white');
+
+    scoreText = new Text("Score: " + score, 25, 25, "left", "#212121", "20");
+    highscoreText = new Text("Highscore: " + highscore, canvas.width - 25, 25, "right", "#212121", "20");
+
+    requestAnimationFrame(Update);
+}
+
+let initialSpawnTimer = 200;
+let spawnTimer = initialSpawnTimer;
+function Update () {
+    requestAnimationFrame(Update);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    spawnTimer--;
+    if (spawnTimer <= 0) {
+        SpawnObstacle();
+        console.log(obstacles);
+        spawnTimer = initialSpawnTimer - gameSpeed * 8;
+
+        if (spawnTimer < 60) {
+            spawnTimer = 60;
+        }
+    }
+
+    // Spawn Enemies
+    for (let i = 0; i < obstacles.length; i++) {
+        let o = obstacles[i];
+
+        if (o.x + o.w < 0) {
+            obstacles.splice(i, 1);
+        }
+
+        if (
+            player.x < o.x + o.w &&
+            player.x + player.w > o.x &&
+            player.y < o.y + o.h &&
+            player.y + player.h > o.y
+        ) {
+            obstacles = [];
+            score = 0;
+            spawnTimer = initialSpawnTimer;
+            gameSpeed = 3;
+            window.localStorage.setItem('highscore', highscore);
+        }
+
+        o.Update();
+    }
+
+    player.Animate();
+
+    score++;
+    scoreText.t = "Score: " + score;
+    scoreText.Draw();
+
+    if (score > highscore) {
+        highscore = score;
+        highscoreText.t = "Highscore: " + highscore;
+    }
+
+    highscoreText.Draw();
+
+    gameSpeed += 0.003;
+}
+
+Start();
 
