@@ -94,7 +94,6 @@ function pasarFormulario(){
 function obtenerRadioButton()
 {
     var dino = document.getElementsByName("dino");
-    var contador;
     for(i=0;i<3;i++){
         if (dino[i].checked) return i;
     }
