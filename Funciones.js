@@ -60,11 +60,30 @@ function dibujarMapaProgreso(){
  * @method pasarFormulario
  */
 function pasarFormulario(){
-    var nombre,dino,urlComp;
+    var nombre,dino,urlComp,pasar;
     nombre = document.getElementById("nombre").value;
+    pasar=1;
+    if(obtenerRadioButton()==undefined){
+        alert("Seleccione un dinosaurio");
+        pasar=0
+    }
+    else{
     dino = document.getElementsByName("dino")[obtenerRadioButton()].value;
-    urlComp = "PantallaJuego.html#" + nombre + "#" + dino;
-    window.open(urlComp);
+    }
+
+    if(nombre==""){
+        alert("Ingrese un nombre valido");
+        pasar=0;
+    }
+    if(nombre.length>20){
+        alert("Nombre demasiado grande");
+        pasar=0;
+    }
+    if(pasar==1) {
+        urlComp = "PantallaJuego.html#" + nombre + "#" + dino;
+        window.open(urlComp, "_self");
+    }
+
 }
 
 /**
@@ -75,8 +94,10 @@ function pasarFormulario(){
 function obtenerRadioButton()
 {
     var dino = document.getElementsByName("dino");
-    for(i=0;i<3;i++)
-        if(dino[i].checked) return i;
+    var contador;
+    for(i=0;i<3;i++){
+        if (dino[i].checked) return i;
+    }
 }
 
 /**
