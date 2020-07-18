@@ -314,6 +314,7 @@ function Start () {
     highscoreText = new Text("Highscore: " + highscore, canvas.width - 25, 25, "right", "#212121", "20");
 
     requestAnimationFrame(Update);
+    document.getElementById("botonJuego").style.display = "none";
 }
 
 let initialSpawnTimer = 200;
@@ -347,6 +348,7 @@ function Update () {
             player.y < o.y + o.h &&
             player.y + player.h > o.y
         ) {
+            alert("No has esquivado el Fernet! Perdiste!");
             obstacles = [];
             score = 0;
             spawnTimer = initialSpawnTimer;
@@ -373,14 +375,20 @@ function Update () {
     gameSpeed += 0.003;
 }
 
-Start();
 
 var aux1=score;
 function ObtenerPuntuaciones() {
-    document.getElementById("puntuos").innerHTML = score;
+    if(score==undefined)
+        document.getElementById("puntuos").innerHTML =0;
+    else
+        document.getElementById("puntuos").innerHTML = score;
     document.getElementById("puesto1").innerHTML = highscore;
 }
 
 function ActualizarPuntos() {
     setInterval(ObtenerPuntuaciones,100)
+}
+
+function Returnindex() {
+    window.open("index.html","_self");
 }
