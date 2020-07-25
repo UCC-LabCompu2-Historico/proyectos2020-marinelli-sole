@@ -276,6 +276,10 @@ class Text {
     }
 }
 
+/**
+ * Genera un obstaculo en el juego
+ * @method SpawnObstacle
+ */
 // Game Functions
 function SpawnObstacle () {
     let size = RandomIntInRange(70, 100);
@@ -288,11 +292,21 @@ function SpawnObstacle () {
     obstacles.push(obstacle);
 }
 
-
+/**
+ * Genera un numero aleatorio entre un maximo y un minimo
+ * @param {number} min - Valor minimo que puede tomar el numero aleatorio.
+ * @param {number} max - Valor maximo que puede tomar el numero aleatorio.
+ * @method SpawnObstacle
+ * @return {number} Retorna un numero aleatorioentre el minimo y el maximo.
+ */
 function RandomIntInRange (min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
+/**
+ * Comienza el juego con la animacion del canvas.
+ * @method Start
+ */
 function Start () {
     canvas.width = canvas.width;
     canvas.height = canvas.height;
@@ -319,6 +333,10 @@ function Start () {
 
 let initialSpawnTimer = 200;
 let spawnTimer = initialSpawnTimer;
+/**
+ * Repinta el canvas por cada frame en el navegador, tambien maneja el spawn de obstaculos, su eliminacion y colision.
+ * @method Update
+ */
 function Update () {
     requestAnimationFrame(Update);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -375,7 +393,10 @@ function Update () {
     gameSpeed += 0.003;
 }
 
-
+/**
+ * Se obtiene el puntaje en el juego y se lo muestra en el tablero de Puntuacion y en el de Mejores Puntuaciones.
+ * @method ObtenerPuntuaciones
+ */
 var aux1=score;
 function ObtenerPuntuaciones() {
     if(score==undefined)
@@ -385,10 +406,18 @@ function ObtenerPuntuaciones() {
     document.getElementById("puesto1").innerHTML = highscore;
 }
 
+/**
+ * Actualiza los puntos mostrados en el tablero de Puntuacion cada 0.1 segundos.
+ * @method ActualizarPuntos
+ */
 function ActualizarPuntos() {
     setInterval(ObtenerPuntuaciones,100)
 }
 
+/**
+ * Vuelve a la pagina principal.
+ * @method Returnindex
+ */
 function Returnindex() {
     window.open("index.html","_self");
 }
