@@ -26,7 +26,7 @@ function dibujarMapaProgreso(){
         ctx.drawImage(numero1,30,30,50,50);
     }
     dino.onload = function(){
-        ctx.drawImage(dino,30,65,70,70);
+        ctx.drawImage(dino,30+score*0.1,65,70,70);
     }
     numero2.onload = function(){
         ctx.drawImage(numero2,200,120,50,50);
@@ -53,6 +53,14 @@ function dibujarMapaProgreso(){
     ctx.lineTo(530, 120);
     ctx.stroke();
     ctx.closePath();
+}
+/**
+ * La funcion anima al canvas en el que se grafica el progreso que se tiene durante el juego.
+ * @method AnimarMapaProgreso
+ */
+function AnimarMapaProgreso() {
+    setInterval(dibujarMapaProgreso,200);
+
 }
 
 /**
@@ -395,6 +403,7 @@ function Update () {
 
 /**
  * Se obtiene el puntaje en el juego y se lo muestra en el tablero de Puntuacion y en el de Mejores Puntuaciones.
+ * Si el puntaje supera los 5000 puntos alerta al ganador y reinicia el juego.
  * @method ObtenerPuntuaciones
  */
 var aux1=score;
@@ -404,6 +413,13 @@ function ObtenerPuntuaciones() {
     else
         document.getElementById("puntuos").innerHTML = score;
     document.getElementById("puesto1").innerHTML = highscore;
+    if (score>=5000) {
+        alert("Conseguiste el trofeo!\nAceptar para reiniciar")
+        obstacles = [];
+        score = 0;
+        spawnTimer = initialSpawnTimer;
+        gameSpeed = 3;
+    }
 }
 
 /**
