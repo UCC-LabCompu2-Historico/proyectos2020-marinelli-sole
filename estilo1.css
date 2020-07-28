@@ -54,45 +54,38 @@ canvas {
     /*background: white;*/
     border: 2px solid black;
 }
-#botonJuego{
-    position: relative;
-    top: 100px;
-    left: 0px;
-}
-#botonRegrsar{
-    position: absolute;
-    bottom: 20px;
-    left: 0px;
-    width: 500px;
-    height: 50px;
-}
+
 #canvas_progreso{
     background: linear-gradient(to right,white,yellow);
-}
-div.posision{
-    position: relative;
 }
 
 #mejores_puntuaciones, #puntuacion, #nivel_progreso{
     background: #3b5736;
 }
 #puntuacion {
+    width: 400px;
+}
+#p_derecha_arriba{
     position: absolute;
-    top: 5%;
-    right: 15px;
-    width: 26%;
-    height: 20%;
+    top: 40px;
+    right: 40px;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+}
 
-}
-#posicion_mej_puntuacion {
+#p_abajo{
     position: absolute;
-    height: 40%;
-    width: 40%;
+    width: 99%;
+    height: 500px;
 }
-#posicion_progreso{
+#mejores_puntuaciones{
+    width: 49%;
+}
+#nivel_progreso{
     position: absolute;
+    right: 10px;
     top: 0px;
-    left: 50%;
-    height: 50%;
-    width: 50%;
+    width: 49%;
+    height: 60%;
 }

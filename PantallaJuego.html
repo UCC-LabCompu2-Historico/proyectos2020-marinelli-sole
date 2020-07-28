@@ -7,38 +7,34 @@
 </head>
 <body onload="AnimarMapaProgreso(), obtenerFormulario(),ActualizarPuntos()">
 <canvas id="juego" width="1300px" height="600px"></canvas>
-<div class="info" id="puntuacion">
-    <p>
-    <h2>Puntuacion: <span id="nombre_jugador"></span></h2>
-    </p>
-    <ul>
-        <li><h1><span id="puntuos"></spanid></h1></li>
-    </ul>
+<div id="p_derecha_arriba">
+    <div class="info" id="puntuacion">
+        <p>
+        <h2>Puntuacion: <span id="nombre_jugador"></span></h2>
+        </p>
+        <ul>
+            <li><h1><span id="puntuos"></spanid></h1></li>
+        </ul>
+    </div>
     <button id="botonJuego" type="button" onclick="Start()"><h2>Comenzar!</h2></button>
+    <button id="botonRegrsar" type="button" onclick="Returnindex()"><h4>Pantalla Inicial</h4></button>
 </div>
-<div class="posision_relativa">
-    <div class="posision">
-        <div id="posicion_mej_puntuacion">
-            <div class="info" id="mejores_puntuaciones">
-                <p><h2>Mejores Puntuaciones</h2></p>
-                <ol>
-                    <li><span id="puesto1"></span></li>
-                    <li><span id="puesto2"></span></li>
-                    <li><span id="puesto3"></span></li>
-                    <li><span id="puesto4"></span></li>
-                    <li><span id="puesto5"></span></li>
-                </ol>
-            </div>
-        </div>
-        <div id="posicion_progreso">
-            <div class="info" id="nivel_progreso">
-                <p><h2>Nivel de Progreso</h2></p>
-                <p><canvas height="200px" width="600px" id="canvas_progreso"></canvas></p>
-            </div>
-        </div>
+<div id="p_abajo">
+    <div class="info" id="mejores_puntuaciones">
+        <p><h2>Mejores Puntuaciones</h2></p>
+        <ol>
+            <li><span id="puesto1"></span></li>
+            <li><span id="puesto2"></span></li>
+            <li><span id="puesto3"></span></li>
+            <li><span id="puesto4"></span></li>
+            <li><span id="puesto5"></span></li>
+        </ol>
+    </div>
+    <div class="info" id="nivel_progreso">
+        <p><h2>Nivel de Progreso</h2></p>
+        <p><canvas height="200px" width="600px" id="canvas_progreso"></canvas></p>
     </div>
 </div>
-<button id="botonRegrsar" type="button" onclick="Returnindex()"><h4>Pantalla Inicial</h4></button>
 <script type="text/javascript" src="Funciones.js"></script>
 </body>
 </html>
