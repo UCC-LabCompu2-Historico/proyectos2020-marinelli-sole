@@ -316,6 +316,7 @@ function RandomIntInRange (min, max) {
  * @method Start
  */
 function Start () {
+    alert("Instrucciones:\nPresione la tecla 'W' para saltar\nPresione la tecla 'S' para agacharse");
     canvas.width = canvas.width;
     canvas.height = canvas.height;
 
