@@ -12,8 +12,8 @@ La página consiste en un juego interactivo en el cual se controla un dinosaurio
 ## Controles
 | Tecla | Accion |
 | ------ | ------ |
-| Espacio | Saltar |
-| Flecha Arrba | Saltar |
+| W | Saltar |
+| S | Agacharse |
 
 
 ### Herramientas utilizadas
@@ -28,3 +28,4 @@ Esta pagina web utilizo las siguientes herramientas de desarrolo para su creacio
 
 - HTML
 - CSS
+-JavaScript
